@@ -35,7 +35,8 @@ Users can send instant text messages and voice messages.
 ---
 
 ## ▶️ Run the app
-1. Start the server:
+
+1. Start the server locally:
    ```bash
    node server.js
    ```
@@ -44,9 +45,28 @@ Users can send instant text messages and voice messages.
    http://localhost:3000
    ```
 
-2. Open `index.html` in your browser:
-   - Local: `http://localhost:3000`
-   - On LAN: `http://<your-local-ip>:3000`
+2. **Optional: Make the backend accessible online (using ngrok)**  
+   - Install ngrok if you don’t have it:
+     ```bash
+     npm install -g ngrok
+     ```
+   - Start a secure tunnel for port 3000:
+     ```bash
+     ngrok http 3000
+     ```
+   - ngrok will give you a HTTPS URL, for example:
+     ```
+     https://abcd1234.ngrok-free.app
+     ```
+   - Update `script.js` (or your frontend code) to use the ngrok URL instead of `localhost`:
+     ```js
+     const socket = io("https://abcd1234.ngrok-free.app");
+     ```
+   - Now any device with the ngrok link can connect to your backend and use the chat.
+
+3. Open the frontend page:
+   - Local: `http://localhost:3000` (if testing locally)
+   - Online via ngrok: use the URL you got from ngrok in your frontend code
 
 ---
 
@@ -82,5 +102,6 @@ realtime-chat/
 
 ---
 
-## 📜 License
+## 📝 License
 This project is open-source under the MIT License.
+
