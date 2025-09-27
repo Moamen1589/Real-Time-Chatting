@@ -1,5 +1,5 @@
 import { io } from "https://cdn.socket.io/4.8.1/socket.io.esm.min.js";
-const socket = io("http://192.168.1.6:3000");
+const socket = io("http://localhost:3000");
 const input = document.getElementById("input");
 const button = document.getElementById("button");
 const status = document.getElementById("status");
